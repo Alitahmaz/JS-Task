@@ -1,3 +1,4 @@
+//task1
 const inputValue = document.getElementById('inputVal');
 const fruitList = document.getElementById('fruit-list');
 const btn = document.getElementById('addBtn');
@@ -45,4 +46,29 @@ const numberBtn = document.getElementById('addNumber');
 const numberList = document.getElementById('numberList');
 
 numberBtn.addEventListener('click', function () {
-    addNumbers(numValue.value);});
+    addNumbers(numValue.value);
+});
+
+function addNumbers(number) {
+
+    for (let i = 1; i <= number; i++) {
+        const li = document.createElement('li');
+        li.innerText = i;
+        li.style.margin = '10px 0';
+        li.style.padding = '10px';
+        if (numberIsEven(i)) {
+            li.classList.add('green-color')
+        } else {
+            li.classList.add('orange-color');
+        }
+        numberList.appendChild(li);
+    }
+}
+
+function numberIsEven(number) {
+    if (number % 2 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
